@@ -90,7 +90,7 @@ Note: Is a 3-operand add/sub here worth it? It costs one eight of the entire enc
 | CORE | 0000 1000 dddd aaaa | eq p0, rd, ra
 | CORE | 0000 1001 dddd aaaa | gt.s p0, rd, ra
 | CORE | 0000 1010 dddd aaaa | gt.u p0, rd, ra
-| CORE | 0000 1011 dddd pppp | mov pd, ra (pd is set to ra != 0)
+|      | 0000 1011 dddd aaaa | reserved
 | CORE | 0000 1100 dddd aaaa | inc rd, ra
 | CORE | 0000 1101 dddd aaaa | dec rd, ra
 | CORE | 0000 1110 dddd aaaa | inc.c rd, ra, p1 (carry in/out in p1)
@@ -100,14 +100,14 @@ Note: Is a 3-operand add/sub here worth it? It costs one eight of the entire enc
 | CORE | 0001 0010 dddd aaaa | xor rd, ra
 | CORE | 0001 0011 dddd aaaa | andc rd, ra
 | CORE | 0001 0100 0ddd aaaa | mov pd, pa
-| CORE | 0001 0100 1ddd aaaa | reserved
+|      | 0001 0100 1ddd aaaa | reserved
 | CORE | 0001 0101 dddd aaaa | mov td, ta
 | CORE | 0001 0110 dddd aaaa | b td if ra == 0
 | CORE | 0001 0111 dddd aaaa | b td if ra != 0
 | CORE | 0001 1000 dddd pppp | b rd (predicated)
 | CORE | 0001 1001 dddd pppp | call td (predicated)
-|      | 0001 1010 xxxx xxxx | reserved
-|      | 0001 1011 xxxx xxxx | reserved
+| CORE | 0001 1010 dddd pppp | mov pd, ra (pd is set to ra != 0)
+| CORE | 0001 1011 dddd pppp | mov ra, pd (ra = 1 if pd else 0)
 |      | 0001 1100 xxxx xxxx | reserved
 |      | 0001 1101 xxxx xxxx | reserved
 |      | 0001 1110 xxxx xxxx | reserved
