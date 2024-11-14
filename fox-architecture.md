@@ -106,8 +106,8 @@ Note: Is a 3-operand add/sub here worth it? It costs one eight of the entire enc
 | CORE | 0001 0111 dddd aaaa | b td if ra != 0
 | CORE | 0001 1000 dddd pppp | b rd (predicated)
 | CORE | 0001 1001 dddd pppp | call td (predicated)
-| CORE | 0001 1010 dddd pppp | mov pd, ra (pd is set to ra != 0)
-| CORE | 0001 1011 dddd pppp | mov ra, pd (ra = 1 if pd else 0)
+| CORE | 0001 1010 dddd aaaa | mov pd, ra (pd is set to ra != 0)
+| CORE | 0001 1011 dddd aaaa | mov rd, pa (ra = 1 if pd else 0)
 |      | 0001 1100 xxxx xxxx | reserved
 |      | 0001 1101 xxxx xxxx | reserved
 |      | 0001 1110 xxxx xxxx | reserved
